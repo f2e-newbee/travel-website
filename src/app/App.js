@@ -1,7 +1,7 @@
 import React from 'react';
-import { Footer } from '../layouts/Footer';
-import { Navigation } from '../layouts/Navigation';
-import { Header } from '../layouts/Header';
+import { Footer } from '../layouts/footer/Footer';
+import { Header } from '../layouts/header/Header';
+import { Main } from '../layouts/main/Main';
 import styled from '@emotion/styled'
 
 /** CSS-IN-JS use Emotion */
@@ -13,10 +13,8 @@ const Section = styled.section`
 export const App = () => {
   return (
       <div className="App">
-        <Navigation />
         <Header />
-        <div className="text-yellow-700">Use Tailwind Style</div>
-        <Section>Use CSS-IN-JS style.</Section>
+        <Main />
         <Footer />
       </div>
   );

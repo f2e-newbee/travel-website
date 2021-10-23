@@ -2,3 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/** NavBar Display*/
+.navbar-mobile{
+    display: none;
+}
+@media screen  and (max-width: 1024px) {
+    .navbar-mobile{
+        display: block;
+    }
+    .navbar-desktop{
+        display: none;
+    }
+}
