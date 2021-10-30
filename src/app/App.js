@@ -1,22 +1,25 @@
-import React from 'react';
-import { Footer } from '../layouts/footer/Footer';
-import { Header } from '../layouts/header/Header';
-import { Main } from '../layouts/main/Main';
-import styled from '@emotion/styled'
-
-/** CSS-IN-JS use Emotion */
-const Section = styled.section`
-  background: #333;
-  color: #fff;
-`
-
+import React, { useEffect } from "react";
+import { Footer } from "../layouts/footer/Footer";
+import { Header } from "../layouts/header/Header";
+import { Main } from "../layouts/main/Main";
+import Loader from "../components/loader/Loader";
+import { useSelector } from "react-redux";
+import { selectLoading } from "../store/slice/loading";
+import { api } from "../api";
 export const App = () => {
-  return (
-      <div className="App">
-        <Header />
-        <Main />
-        <Footer />
-      </div>
-  );
-}
+  useEffect(() => {
+    // TODO: api測試
+    api
+      .get("/v2/Tourism/ScenicSpot?$top=30&$format=JSON")
+      .then((response) => {});
+  }, []);
 
+  return (
+    <div className="app">
+      <Header />
+      <Main />
+      <Footer />
+      {useSelector(selectLoading) && <Loader />}
+    </div>
+  );
+};

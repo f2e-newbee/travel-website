@@ -61,16 +61,16 @@
                </div>
                 <ul className="w-100 flex text-gray-100 pr-20 flex items-center">
                     <li className="mr-2 px-10 hover:text-white font-bold">
-                        <a href="#">關於我們</a>
+                        <a href="/#">關於我們</a>
                     </li>
                     <li className="mr-2 px-10 hover:text-white font-bold">
-                        <a href="#">聯絡資訊</a>
+                        <a href="/#">聯絡資訊</a>
                     </li>
                     <li className="mr-2 px-10 hover:text-white font-bold">
-                        <a href="#">主題旅遊</a>
+                        <a href="/#">主題旅遊</a>
                     </li>
                     <li className="mr-2 px-10 hover:text-white font-bold">
-                        <a href="#">景點介紹</a>
+                        <a href="/#">景點介紹</a>
                     </li>
                     <li className="mr-2 px-10 hover:text-white font-bold">
                         <Search>
