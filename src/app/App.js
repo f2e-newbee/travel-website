@@ -9,7 +9,8 @@ import styled from "@emotion/styled";
 import Loader from "../components/loader/Loader";
 import { useSelector } from "react-redux";
 import { selectLoading } from "../store/slice";
-import { api } from "../api";
+// import { api } from "../api";
+import { fetchApi } from "../api";
 
 /** CSS-IN-JS use Emotion */
 const Section = styled.section`
@@ -18,12 +19,14 @@ const Section = styled.section`
 `;
 
 export const App = () => {
-  console.log("loading", useSelector(selectLoading));
+  // TODO: api測試，待移除
   useEffect(() => {
-    // TODO: api測試，待移除
-    api
-      .get("/v2/Tourism/ScenicSpot?$top=30&$format=JSON")
-      .then((response) => {});
+    fetchApi("/v2/Tourism/ScenicSpot", {
+      $top: 10,
+      $format: "JSON",
+    }).then((data) => {
+      console.log(data);
+    });
   }, []);
 
   return (
