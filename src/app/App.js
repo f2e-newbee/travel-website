@@ -1,7 +1,10 @@
 import React from 'react';
 import { Footer } from '../layouts/footer/Footer';
 import { Header } from '../layouts/header/Header';
-import { Main } from '../layouts/main/Main';
+import { Home } from '../features/Home';
+import { AttractionList } from '../features/attractionlist/AttractionList';
+import { FoodList } from '../features/foodlist/Foods';
+import { BrowserRouter, Route } from 'react-router-dom';
 import styled from '@emotion/styled'
 
 /** CSS-IN-JS use Emotion */
@@ -12,11 +15,15 @@ const Section = styled.section`
 
 export const App = () => {
   return (
-      <div className="App">
+    <BrowserRouter>
+      <div className="App relative">
         <Header />
-        <Main />
+        <Route exact path="/" component={Home}/> 
+        <Route path="/attractionlist" component={AttractionList}/> 
+        <Route path="/foodlist" component={FoodList}/> 
         <Footer />
       </div>
+    </BrowserRouter>
   );
 }
 

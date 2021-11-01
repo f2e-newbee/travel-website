@@ -1,4 +1,4 @@
- import React from 'react'
+ import React, { useState } from 'react'
  import { StyledEngineProvider } from '@mui/material/styles';
  import SearchIcon from '@mui/icons-material/Search';
  import HeaderMobile from './HeaderMobile';
@@ -50,27 +50,41 @@
 
 
  export const Header = () => {
+    /** 設定header背景顏色 */
+    const [header,setHeader]= useState(false);
+    const changeHeaderBg = () =>{
+      if(window.scrollY >= 60){
+        setHeader(true)
+      }
+      else{
+        setHeader(false)
+      }
+    }
+    const headerClass = `top-0 fixed  w-full  ${ header ? 'bg-primary':'bg-transparent'}`
+    window.addEventListener('scroll', changeHeaderBg);    
+
+
      return (
-         <div>
+         <header className={headerClass}>
             <StyledEngineProvider injectFirst>
                 <HeaderMobile />
             </StyledEngineProvider>
-            <div className="navbar-desktop w-full h-16 bg-blue-400	flex items-center justify-between p-5">
+            <div className="navbar-desktop h-16 flex items-center justify-between p-5">
                <div className="text-gray-50">
-                   Logo Here
+                   <a href="/">Logo Here </a>
                </div>
                 <ul className="w-100 flex text-gray-100 pr-20 flex items-center">
                     <li className="mr-2 px-10 hover:text-white font-bold">
-                        <a href="#">關於我們</a>
+                        <a href="/attractionlist">景點</a>
                     </li>
                     <li className="mr-2 px-10 hover:text-white font-bold">
-                        <a href="#">聯絡資訊</a>
+                        <a href="/foodlist">美食</a>
                     </li>
                     <li className="mr-2 px-10 hover:text-white font-bold">
-                        <a href="#">主題旅遊</a>
+                        <a href="#">住宿</a>
                     </li>
                     <li className="mr-2 px-10 hover:text-white font-bold">
-                        <a href="#">景點介紹</a>
+                        <a href="#">主題之旅</a>
                     </li>
                     <li className="mr-2 px-10 hover:text-white font-bold">
                         <Search>
@@ -85,7 +99,7 @@
                     </li>
                 </ul>
             </div>
-         </div>
+         </header>
         
      )
  }
