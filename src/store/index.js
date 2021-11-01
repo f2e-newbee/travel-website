@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import loadingReducer from './slice/loading'
+import fetchReducer from "./slice/fetch";
 
 export const store = configureStore({
   reducer: {
-    loading: loadingReducer,
+    fetch: fetchReducer,
   },
 });

@@ -8,7 +8,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import styled from "@emotion/styled";
 import Loader from "../components/loader/Loader";
 import { useSelector } from "react-redux";
-import { selectLoading } from "../store/slice/loading";
+import { selectLoading } from "../store/slice";
 import { api } from "../api";
 
 /** CSS-IN-JS use Emotion */
@@ -18,8 +18,9 @@ const Section = styled.section`
 `;
 
 export const App = () => {
+  console.log("loading", useSelector(selectLoading));
   useEffect(() => {
-    // TODO: api測試
+    // TODO: api測試，待移除
     api
       .get("/v2/Tourism/ScenicSpot?$top=30&$format=JSON")
       .then((response) => {});
