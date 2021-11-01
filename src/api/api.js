@@ -4,7 +4,7 @@ import { store } from "../store";
 import { startFetch, endFetch } from "../store/slice";
 
 /**
- * 定義api config
+ * api config設定
  */
 export const api = axios.create({
   baseURL: "https://ptx.transportdata.tw/MOTC",
@@ -13,6 +13,7 @@ export const api = axios.create({
   timeout: 20000,
 });
 
+// api request攔截器
 api.interceptors.request.use(
   (config) => {
     store.dispatch(startFetch());
@@ -23,6 +24,7 @@ api.interceptors.request.use(
   }
 );
 
+// api response攔截器
 api.interceptors.response.use(
   (response) => {
     store.dispatch(endFetch());
@@ -57,3 +59,12 @@ function getAuthorizationHeader() {
   return { Authorization: Authorization, "X-Date": GMTString };
 }
 
+/**
+ * 取得api資料的方法
+ * @param {*} url 如 /v2/Tourism/ScenicSpot
+ * @param {*} params
+ * @returns Promise物件
+ */
+export const fetchApi = (url, params = null) => {
+  return api.get(url, { params: { ...params } });
+};
