@@ -8,8 +8,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 import styled from "@emotion/styled";
 import Loader from "../components/loader/Loader";
 import { useSelector } from "react-redux";
-import { selectLoading } from "../store/slice";
-// import { api } from "../api";
+import { selectFetch } from "../store/slice";
+import { ErrorModal } from "../components/modal/ErrorModal";
 import { fetchApi } from "../api";
 
 /** CSS-IN-JS use Emotion */
@@ -19,13 +19,15 @@ const Section = styled.section`
 `;
 
 export const App = () => {
+  const { loading, hasError, errorMsg } = useSelector(selectFetch);
+
   // TODO: api測試，待移除
   useEffect(() => {
-    fetchApi("/v2/Tourism/ScenicSpot", {
+    fetchApi("/v2/Tourism/Scenicpot", {
       $top: 10,
       $format: "JSON",
     }).then((data) => {
-      console.log(data);
+      // console.log(data);
     });
   }, []);
 
@@ -37,7 +39,8 @@ export const App = () => {
         <Route path="/attractionlist" component={AttractionList} />
         <Route path="/foodlist" component={FoodList} />
         <Footer />
-        {useSelector(selectLoading) && <Loader />}
+        {loading && <Loader />}
+        {hasError && <ErrorModal errorMsg={errorMsg} />}
       </div>
     </BrowserRouter>
   );

@@ -6,6 +6,7 @@ export const fetchSlice = createSlice({
     loading: false,
     apiCount: 0,
     hasError: false,
+    errorMsg: "",
   },
   reducers: {
     startFetch: (state, action) => {
@@ -20,7 +21,18 @@ export const fetchSlice = createSlice({
       if (state.apiCount === 0) {
         state.loading = false;
       }
+
       return state;
+    },
+    setError: (state, { payload }) => {
+      state.loading = false;
+      state.apiCount = 0;
+      if (payload) {
+        state.hasError = true;
+        state.errorMsg = payload;
+      }
+      return state
+     
     },
   },
 });
@@ -29,6 +41,7 @@ const { actions, reducer } = fetchSlice;
 
 export default reducer;
 // Extract and export each action creator by name
-export const { startFetch, endFetch } = actions;
+export const { startFetch, endFetch, setError } = actions;
 // get state
-export const selectLoading = (state) => state.fetch.loading;
+export const selectFetch = (state) => state.fetch;
+// export const selectLoading = (state) => state.fetch.loading;
