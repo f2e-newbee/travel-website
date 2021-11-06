@@ -16,7 +16,6 @@ const style = {
 
 export const ErrorModal = ({ title = "錯誤", errorMsg }) => {
   const [open, setOpen] = React.useState(true);
-  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (

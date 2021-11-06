@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Footer } from "../layouts/footer/Footer";
 import { Header } from "../layouts/header/Header";
 import { Home } from "../features/Home";
@@ -10,7 +10,6 @@ import Loader from "../components/loader/Loader";
 import { useSelector } from "react-redux";
 import { selectFetch } from "../store/slice";
 import { ErrorModal } from "../components/modal/ErrorModal";
-import { fetchApi } from "../api";
 
 /** CSS-IN-JS use Emotion */
 const Section = styled.section`
@@ -20,16 +19,6 @@ const Section = styled.section`
 
 export const App = () => {
   const { loading, hasError, errorMsg } = useSelector(selectFetch);
-
-  // TODO: api測試，待移除
-  useEffect(() => {
-    fetchApi("/v2/Tourism/Scenicpot", {
-      $top: 10,
-      $format: "JSON",
-    }).then((data) => {
-      // console.log(data);
-    });
-  }, []);
 
   return (
     <BrowserRouter>
