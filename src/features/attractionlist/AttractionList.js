@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from "react";
-import Filter from "../../components/filter/Filter";
-import Card from "@mui/material/Card";
+import CardImageList from "../../components/cardImageList/CardImageList";
+import CardListPagination from "../../components/pagination/CardListPagination";
 import { fetchApi } from "../../api";
+
+export const PICTURE_PER_PAGE = 12;
+
 export const AttractionList = () => {
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(0);
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+
+  // const [count, setCount] = useState(0);
   useEffect(() => {
     // fetchApi("/v2/Tourism/ScenicSpot/Taichung", {
     //   $top: 12,
@@ -13,35 +23,26 @@ export const AttractionList = () => {
     fetchData();
   }, []);
 
-  function fetchData() {
-    fetchApi("/v2/Tourism/ScenicSpot/Taichung", {
-      $top: 12,
-    }).then((response) => {
-      setData(response.data);
+  function fetchData(params = {}) {
+    fetchApi("/v2/Tourism/ScenicSpot/Taipei", params).then((response) => {
+      const data = response.data.filter((item) => item.Picture.PictureUrl1);
+      setCount(Math.ceil(data.length / PICTURE_PER_PAGE));
+      setData(data);
     });
   }
 
-  function CardList() {
-    return data.map((item) => {
-      return (
-        <Card key={item.ID}>
-          <img
-            className="object-fill h-48 w-full"
-            src={item.Picture.PictureUrl1}
-            alt={item.Picture.PictureDescription1}
-          />
-        </Card>
-      );
-    });
-  }
   return (
     <div>
       <div className="container mx-auto">
-        <Filter />
-       
-
-        <div className="grid grid-cols-4 grid-rows-3 gap-10">
-          <CardList />
+        <div className="my-10">
+          <CardImageList data={data} page={page} />
+        </div>
+        <div className="flex justify-center mb-20">
+          <CardListPagination
+            page={page}
+            handlePageChange={handlePageChange}
+            count={count}
+          />
         </div>
       </div>
     </div>
