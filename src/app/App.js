@@ -5,17 +5,10 @@ import { Home } from "../features/Home";
 import { AttractionList } from "../features/attractionlist/AttractionList";
 import { FoodList } from "../features/foodlist/Foods";
 import { BrowserRouter, Route } from "react-router-dom";
-import styled from "@emotion/styled";
 import Loader from "../components/loader/Loader";
 import { useSelector } from "react-redux";
 import { selectFetch } from "../store/slice";
 import { ErrorModal } from "../components/modal/ErrorModal";
-
-/** CSS-IN-JS use Emotion */
-const Section = styled.section`
-  background: #333;
-  color: #fff;
-`;
 
 export const App = () => {
   const { loading, hasError, errorMsg } = useSelector(selectFetch);
