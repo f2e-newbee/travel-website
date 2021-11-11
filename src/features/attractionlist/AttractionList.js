@@ -1,49 +1,58 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import CardImageList from "../../components/cardImageList/CardImageList";
+import CardListPagination from "../../components/pagination/CardListPagination";
 import Filter from "../../components/filter/Filter";
-import Card from "@mui/material/Card";
 import { fetchApi } from "../../api";
+
+export const PICTURE_PER_PAGE = 12;
+
 export const AttractionList = () => {
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(0);
+  const navigate = useNavigate();
+
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+
   useEffect(() => {
-    // fetchApi("/v2/Tourism/ScenicSpot/Taichung", {
-    //   $top: 12,
-    // }).then((data) => {
-    //   console.log(data);
-    // });
     fetchData();
   }, []);
 
-  function fetchData() {
-    fetchApi("/v2/Tourism/ScenicSpot/Taichung", {
-      $top: 12,
-    }).then((response) => {
-      setData(response.data);
+  function fetchData(params = {}) {
+    fetchApi("/v2/Tourism/ScenicSpot/Taipei", params).then((response) => {
+      const data = response.data.filter((item) => item.Picture.PictureUrl1);
+      setCount(Math.ceil(data.length / PICTURE_PER_PAGE));
+      setData(data);
     });
   }
 
-  function CardList() {
-    return data.map((item) => {
-      return (
-        <Card key={item.ID}>
-          <img
-            className="object-fill h-48 w-full"
-            src={item.Picture.PictureUrl1}
-            alt={item.Picture.PictureDescription1}
-          />
-        </Card>
-      );
-    });
+  function goToDetailPage(item) {
+    // dispatch(setAttractionData(item))
+    navigate(`/attractionItem/${item.ID}`);
   }
+
   return (
-    <div>
+    <>
       <div className="container mx-auto">
         <Filter />
-       
-
-        <div className="grid grid-cols-4 grid-rows-3 gap-10">
-          <CardList />
+        <div className="my-10">
+          <CardImageList
+            data={data}
+            page={page}
+            goToDetailPage={goToDetailPage}
+          />
+        </div>
+        <div className="flex justify-center mb-20">
+          <CardListPagination
+            page={page}
+            handlePageChange={handlePageChange}
+            count={count}
+          />
         </div>
       </div>
-    </div>
+    </>
   );
 };
