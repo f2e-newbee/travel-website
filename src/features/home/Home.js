@@ -1,17 +1,12 @@
 import React from 'react'
 import Slider from "react-slick";
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import InfoIcon from '@mui/icons-material/Info';
-import IconButton from '@mui/material/IconButton';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { HotelCardItem } from './HotelCardItem';
 import { ReactComponent as SceneTitle } from '../../assets/title/subtitle-1.svg'
 import { ReactComponent as FoodTitle } from '../../assets/title/subtitle-2.svg'
 import { ReactComponent as RoomTitle } from '../../assets/title/subtitle-3.svg'
-import { height } from '@mui/system';
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -26,7 +21,7 @@ const PrevArrow = (props) =>{
     const { onClick } = props;
 
     return(
-        <div className="w-32 h-auto absolute top-2/4 -left-24 transform -translate-y-2/4 cursor-pointer" onClick={onClick}>
+        <div className="w-32 h-auto absolute top-2/4 -left-24 transform -translate-y-2/4 cursor-pointer md:block hidden" onClick={onClick}>
             <ArrowBackIosNewIcon />
         </div>
     )
@@ -36,7 +31,7 @@ const NextArrow = (props) =>{
     const { onClick } = props;
 
     return(
-        <div className="w-32 h-auto absolute top-2/4 -right-24 transform -translate-y-2/4 cursor-pointer" onClick={onClick}>
+        <div className="w-32 h-auto absolute top-2/4 -right-24 transform -translate-y-2/4 cursor-pointer md:block hidden" onClick={onClick}>
             <ArrowForwardIosIcon />
         </div>
     )
@@ -100,10 +95,10 @@ export const Home = () => {
 
     return (
         <div>
-            <img src="/assets/img/bg.jpg" alt="風景" />
+            <div className="w-screen h-screen main-banner"></div>
             <section className="text-center max-w-screen-xl my-0 mx-auto my-36 pb-40 border-b border-gray-200">
                 <SceneTitle className="my-0 mx-auto mb-10"/>
-                <div className="px-20">
+                <div className="sm:px-20 px-6">
                     <Slider {...SceneSettings}>
                     <div>
                         <div className="w-full h-auto px-4">
@@ -138,21 +133,30 @@ export const Home = () => {
                     <div>
                         <div className="w-full h-auto px-4">
                             <img src="/assets/img/bg.jpg" alt="風景" />
-                        </div>                    </div>
+                        </div>                   
+                    </div>
                     <div>
                         <div className="w-full h-auto px-4">
                             <img src="/assets/img/bg.jpg" alt="風景" />
-                        </div>                    </div>
+                        </div>                    
+                    </div>
                     <div>
                         <div className="w-full h-auto px-4">
                             <img src="/assets/img/bg.jpg" alt="風景" />
-                        </div>                    </div>
+                        </div>                    
+                    </div>
                     </Slider>
                 </div> 
+                <div class="w-full mt-16">
+                  <a class="flex align-center justify-center" href="/attractionlist">
+                    <p className="font-bold text-secondary">看更多景點</p>
+                      <ArrowRightIcon  className="text-secondary"/>
+                  </a>
+                </div>
             </section>
             <section className="text-center max-w-screen-xl my-0 mx-auto my-36 pb-40 border-b border-gray-200">
                 <FoodTitle className="my-0 mx-auto mb-10"/>
-                <div className="w-full grid grid-rows-7 grid-cols-4 gap-4 px-20">
+                <div className="w-full grid grid-rows-7 grid-cols-4 gap-4 sm:px-20 px-6">
                   <div className="row-span-3 lg:col-span-2 col-span-4">
                     <img className="lg:h-full lg:w-full w-full h-auto"  src="/assets/img/food-4.png" alt="food-1" />
                   </div>
@@ -168,13 +172,18 @@ export const Home = () => {
                   <div className="row-span-5 lg:col-span-2 col-span-4">
                     <img className="lg:h-full lg:w-full w-full h-auto" src="/assets/img/food-5.png" alt="food-5" />
                   </div>
-                  <div className="row-span-3 lg:col-span-2 col-span-4 bg-blue-700"></div>
+                  <a  href="/foodlist" className="lg:row-span-3 row-span-6 lg:col-span-2 col-span-4 bg-secondary flex  justify-center items-center">
+                    <div class="flex">
+                      <p className="font-bold text-gray-50">看更多景點</p>
+                        <ArrowRightIcon  className="text-gray-50"/>
+                    </div>
+                  </a>
                 </div>
             </section>
             <section className="text-center max-w-screen-xl my-0 mx-auto my-36 pb-40">                
                 <RoomTitle  className="my-0 mx-auto mb-10"/>
-                <div className="px-20">
-                    <Slider className="flex align-item-center" {...liveSettings}>
+                <div className="sm:px-20 px-6">
+                    <Slider className="flex items-center" {...liveSettings}>
                     <div>
                         <HotelCardItem/>
                     </div>
@@ -208,64 +217,3 @@ export const Home = () => {
         </div>
     )
 }
-
-const itemData = [
-    {
-      img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-      title: 'Breakfast',
-      rows: 1,
-      cols: 1,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-      title: 'Burger',
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-      title: 'Camera',
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-      title: 'Coffee',
-      cols: 2,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
-      title: 'Hats',
-      cols: 2,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
-      title: 'Honey',
-      author: '@arwinneil',
-      rows: 4,
-      cols: 4,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
-      title: 'Basketball',
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
-      title: 'Fern',
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
-      title: 'Mushrooms',
-      rows: 2,
-      cols: 2,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
-      title: 'Tomato basil',
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
-      title: 'Sea star',
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
-      title: 'Bike',
-      cols: 2,
-    },
-  ];

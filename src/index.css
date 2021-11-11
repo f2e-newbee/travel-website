@@ -19,9 +19,18 @@
     content: '';
     padding-left: 5rem;
 }
+
+.main-banner{
+    background: url('../src/assets/img/bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
 @media screen  and (max-width: 1024px) {
     .navbar-mobile{
         display: block;
+    }
+    .navbar-mobile .css-hip9hq-MuiPaper-root-MuiAppBar-root{
+        background-color: #5CAFBB;
     }
     .navbar-desktop{
         display: none;

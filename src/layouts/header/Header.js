@@ -57,6 +57,7 @@ export const Header = () => {
     } else {
       setHeader(false);
     }
+  }
     const headerClass = `top-0 fixed  w-full  z-50	${ header ? 'bg-primary':'bg-transparent'}`
     window.addEventListener('scroll', changeHeaderBg);    
 

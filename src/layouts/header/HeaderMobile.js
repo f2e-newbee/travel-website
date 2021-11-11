@@ -84,7 +84,7 @@ import RoomIcon from '@mui/icons-material/Room';
   
  
   return (
-    <Box sx={{ flexGrow: 1 }} className="navbar-mobile bg-blue-100">
+    <Box sx={{ flexGrow: 1 }} className="navbar-mobile bg-gray-100">
       <AppBar position="static">
         <Toolbar>
           <IconButton
