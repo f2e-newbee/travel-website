@@ -1,9 +1,9 @@
 import React from "react";
 import { Footer } from "../layouts/footer/Footer";
 import { Header } from "../layouts/header/Header";
-import { Home } from "../features/Home";
+import { Home } from "../features/home/Home";
 import { AttractionList } from "../features/attractionlist/AttractionList";
-import { FoodList } from "../features/foodlist/Foods";
+import { FoodList } from "../features/foodlist/FoodList";
 import { BrowserRouter, Route } from "react-router-dom";
 import styled from "@emotion/styled";
 import Loader from "../components/loader/Loader";

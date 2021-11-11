@@ -2,10 +2,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Slick css */
+
 
 /** NavBar Display*/
 .navbar-mobile{
     display: none;
+}
+
+.navbar-desktop .navbar-list li:not(:last-child):after{
+    content: '';
+    padding-left: 5rem;
+    border-right: 1px solid rgba(249, 250, 251);
+}
+.navbar-desktop .navbar-list li:last-child:after{
+    content: '';
+    padding-left: 5rem;
 }
 @media screen  and (max-width: 1024px) {
     .navbar-mobile{
@@ -15,3 +27,4 @@
         display: none;
     }
 }
+ 

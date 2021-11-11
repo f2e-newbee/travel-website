@@ -60,7 +60,7 @@
         setHeader(false)
       }
     }
-    const headerClass = `top-0 fixed  w-full  ${ header ? 'bg-primary':'bg-transparent'}`
+    const headerClass = `top-0 fixed  w-full  z-50	${ header ? 'bg-primary':'bg-transparent'}`
     window.addEventListener('scroll', changeHeaderBg);    
 
 
@@ -69,11 +69,13 @@
             <StyledEngineProvider injectFirst>
                 <HeaderMobile />
             </StyledEngineProvider>
-            <div className="navbar-desktop h-16 flex items-center justify-between p-5">
-               <div className="text-gray-50">
-                   <a href="/">Logo Here </a>
+            <div className="navbar-desktop h-16 flex items-center p-5">
+               <div className="text-gray-50 w-4/12">
+                  <div className="flex">
+                    <a href="/">Logo Here </a>
+                  </div>
                </div>
-                <ul className="w-100 flex text-gray-100 pr-20 flex items-center">
+                <ul className="navbar-list w-4/12	flex text-gray-100 flex items-center justify-center">
                     <li className="mr-2 px-10 hover:text-white font-bold">
                         <a href="/attractionlist">景點</a>
                     </li>
@@ -83,10 +85,10 @@
                     <li className="mr-2 px-10 hover:text-white font-bold">
                         <a href="#">住宿</a>
                     </li>
-                    <li className="mr-2 px-10 hover:text-white font-bold">
+                    {/* <li className="mr-2 px-10 hover:text-white font-bold">
                         <a href="#">主題之旅</a>
-                    </li>
-                    <li className="mr-2 px-10 hover:text-white font-bold">
+                    </li> */}
+                    {/* <li className="mr-2 px-10 hover:text-white font-bold">
                         <Search>
                             <SearchIconWrapper>
                             <SearchIcon />
@@ -96,7 +98,7 @@
                             inputProps={{ 'aria-label': 'search' }}
                             />
                         </Search>                     
-                    </li>
+                    </li> */}
                 </ul>
             </div>
          </header>
