@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { PICTURE_PER_PAGE } from "../../features/attractionlist/AttractionList";
 
-export default function CardImageList({ data, page }) {
+export default function CardImageList({ data, page, goToDetailPage }) {
   const [itemData, setItemData] = useState(data.slice(0, PICTURE_PER_PAGE));
 
   useEffect(() => {
@@ -16,7 +16,8 @@ export default function CardImageList({ data, page }) {
       {itemData.map((item) => (
         <div
           key={item.ID}
-          className="relative h-52 rounded overflow-hidden shadow-sm"
+          className="relative h-52 rounded overflow-hidden shadow-sm cursor-pointer"
+          onClick={()=>goToDetailPage(item)}
         >
           <img
             src={item.Picture.PictureUrl1}

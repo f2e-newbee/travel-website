@@ -1,34 +1,45 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
+import React, { useState } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
+import Grid from "@mui/material/Grid";
 
 const Filter = () => {
-  const [age, setAge] = React.useState("");
+  const [district, setDistrict] = useState('');
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const handleDistrictChange = (event) => {
+    setDistrict(event.target.value);
   };
 
   return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth variant="standard">
-        <InputLabel className="">行政區</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={age}
-          label="Age"
-          onChange={handleChange}
-        >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
-    </Box>
+    <Grid container spacing={2}>
+      <Grid item xs={2}>
+        <Stack direction="row" spacing={1} alignItems="center">
+          <span className="text-primary-dark font-bold">排序</span>
+          <Chip label="評分" variant="outlined" />
+          <Chip label="評論數" variant="outlined" />
+        </Stack>
+      </Grid>
+      <Grid item xs={3}>
+        <FormControl fullWidth variant="standard">
+          <InputLabel>行政區</InputLabel>
+          <Select value={district} onChange={handleDistrictChange}>
+            <MenuItem value={10}>Ten</MenuItem>
+          </Select>
+        </FormControl>
+      </Grid>
+      {/* <Grid item xs={2}>
+        <FormControl fullWidth variant="standard">
+          <InputLabel>營業時間</InputLabel>
+          <Select>
+            <MenuItem value={10}>Ten</MenuItem>
+          </Select>
+        </FormControl>
+      </Grid> */}
+    </Grid>
   );
 };
 

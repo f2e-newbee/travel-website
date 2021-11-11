@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CardImageList from "../../components/cardImageList/CardImageList";
 import CardListPagination from "../../components/pagination/CardListPagination";
+import Filter from "../../components/filter/Filter";
 import { fetchApi } from "../../api";
 
 export const PICTURE_PER_PAGE = 12;
@@ -9,17 +11,13 @@ export const AttractionList = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
+  const navigate = useNavigate();
+
   const handlePageChange = (event, value) => {
     setPage(value);
   };
 
-  // const [count, setCount] = useState(0);
   useEffect(() => {
-    // fetchApi("/v2/Tourism/ScenicSpot/Taichung", {
-    //   $top: 12,
-    // }).then((data) => {
-    //   console.log(data);
-    // });
     fetchData();
   }, []);
 
@@ -31,11 +29,21 @@ export const AttractionList = () => {
     });
   }
 
+  function goToDetailPage(item) {
+    // dispatch(setAttractionData(item))
+    navigate(`/attractionItem/${item.ID}`);
+  }
+
   return (
-    <div>
+    <>
       <div className="container mx-auto">
+        <Filter />
         <div className="my-10">
-          <CardImageList data={data} page={page} />
+          <CardImageList
+            data={data}
+            page={page}
+            goToDetailPage={goToDetailPage}
+          />
         </div>
         <div className="flex justify-center mb-20">
           <CardListPagination
@@ -45,6 +53,6 @@ export const AttractionList = () => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
