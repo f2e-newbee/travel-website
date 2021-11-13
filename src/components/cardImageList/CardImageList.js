@@ -1,5 +1,5 @@
 import React from "react";
-
+import CardImageItem from "../cardImageItem/CardImageItem";
 
 /**
  * ImageCard列表顯示元件
@@ -9,28 +9,17 @@ import React from "react";
 export default function CardImageList({ list, goToDetailPage }) {
   return (
     <div className="grid grid-cols-4 grid-rows-3 gap-6">
-      {list.map((item) => (
-        <div
-          key={item.ID}
-          className="relative h-52 rounded overflow-hidden shadow-sm cursor-pointer"
-          onClick={() => goToDetailPage(item)}
-        >
-          <img
-            src={item.Picture.PictureUrl2 || item.Picture.PictureUrl1}
-            alt={item.Name}
-            className="w-full h-full"
-          />
-          <ImageBar title={item.Name} />
-        </div>
-      ))}
+      {list.map((item) => {
+        return (
+          <div className="h-52" key={item.ID}>
+            <CardImageItem
+              url={item.Picture.PictureUrl1}
+              title={item.Name}
+              clickEvent={()=>goToDetailPage(item)}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }
-
-const ImageBar = ({ title }) => {
-  return (
-    <div className="absolute text-white bg-black bottom-0 h-20 w-full p-3 opacity-70 font-semibold">
-      <span>{title}</span>
-    </div>
-  );
-};
