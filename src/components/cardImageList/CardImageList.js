@@ -1,19 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-const PICTURE_PER_PAGE = 12;
 
-export default function CardImageList({ data, page, goToDetailPage }) {
-  const [itemData, setItemData] = useState(data.slice(0, PICTURE_PER_PAGE));
-
-  useEffect(() => {
-    let start = PICTURE_PER_PAGE * (page - 1);
-    let end = start + PICTURE_PER_PAGE;
-    setItemData(data.slice(start, end));
-  }, [data, page]);
-
+/**
+ * ImageCard列表顯示元件
+ * @param {Array} list: 傳入資料列表
+ * @param {Function} goToDetailPage: 點擊image後要做的事
+ */
+export default function CardImageList({ list, goToDetailPage }) {
   return (
     <div className="grid grid-cols-4 grid-rows-3 gap-6">
-      {itemData.map((item) => (
+      {list.map((item) => (
         <div
           key={item.ID}
           className="relative h-52 rounded overflow-hidden shadow-sm cursor-pointer"

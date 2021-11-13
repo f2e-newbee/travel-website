@@ -13,15 +13,19 @@ export const AttractionList = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
-  const navigate = useNavigate();
+  const [showDataList, setShowDataList] = useState([]);
 
-  const handlePageChange = (event, value) => {
-    setPage(value);
-  };
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    let start = PICTURE_PER_PAGE * (page - 1);
+    let end = start + PICTURE_PER_PAGE;
+    setShowDataList(data.slice(start, end));
+  }, [data, page]);
 
   function fetchData(params = {}) {
     fetchApi("/v2/Tourism/ScenicSpot/Taipei", params).then((response) => {
@@ -35,6 +39,10 @@ export const AttractionList = () => {
     navigate(`/attractionItem/${item.ID}`);
   }
 
+  function handlePageChange(event, value) {
+    setPage(value);
+  }
+
   return (
     <>
       <CustomHeader title="景點列表">
@@ -44,8 +52,7 @@ export const AttractionList = () => {
         <Filter />
         <div className="my-10">
           <CardImageList
-            data={data}
-            page={page}
+            list={showDataList}
             goToDetailPage={goToDetailPage}
           />
         </div>
