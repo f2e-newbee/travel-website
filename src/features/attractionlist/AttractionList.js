@@ -4,7 +4,8 @@ import CardImageList from "../../components/cardImageList/CardImageList";
 import CardListPagination from "../../components/pagination/CardListPagination";
 import Filter from "../../components/filter/Filter";
 import { fetchApi } from "../../api";
-
+import SearchBar from "../../components/searchBar/SearchBar";
+import CustomHeader from "../../components/customHeader/CustomHeader";
 export const PICTURE_PER_PAGE = 12;
 
 export const AttractionList = () => {
@@ -36,6 +37,9 @@ export const AttractionList = () => {
 
   return (
     <>
+      <CustomHeader title="景點列表">
+        <SearchBar type="primary"/>
+      </CustomHeader>
       <div className="container mx-auto">
         <Filter />
         <div className="my-10">

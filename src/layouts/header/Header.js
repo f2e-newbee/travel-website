@@ -1,53 +1,8 @@
 import React, { useState } from "react";
 import { StyledEngineProvider } from "@mui/material/styles";
-import SearchIcon from "@mui/icons-material/Search";
 import HeaderMobile from "./HeaderMobile";
-import { styled, alpha } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
 import { ReactComponent as Logo } from '../../assets/img/logo.svg'
 
-/**  SearchBar Style */
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
-    width: "auto",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
-      },
-    },
-  },
-}));
 
 export const Header = () => {
   /** 設定header背景顏色 */
@@ -79,7 +34,7 @@ export const Header = () => {
                         <a href="/attractionlist">景點</a>
                     </li>
                     <li className="mr-2 px-10 hover:text-white font-bold">
-                        <a href="/foodlist">美食</a>
+                        <a href="/foodlist">餐廳</a>
                     </li>
                     <li className="mr-2 px-10 hover:text-white font-bold">
                         <a href="#">住宿</a>
