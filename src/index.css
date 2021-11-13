@@ -2,8 +2,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* Slick css */
 
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 /** NavBar Display*/
 .navbar-mobile{
@@ -23,6 +24,12 @@
 .main-banner{
     background: url('../src/assets/img/bg.jpg') no-repeat center center;
     background-size: cover;
+}
+.main-title{
+    font-family: 'Permanent Marker', cursive;
+}
+.sub-title{
+    font-family: 'Permanent Marker', cursive;
 }
 
 @media screen  and (max-width: 1024px) {
