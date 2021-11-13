@@ -8,14 +8,14 @@ import CardImageItem from "../cardImageItem/CardImageItem";
  */
 export default function CardImageList({ list, goToDetailPage }) {
   return (
-    <div className="grid grid-cols-4 grid-rows-3 gap-6">
+    <div className="grid md:grid-cols-4 md:grid-rows-3 gap-6 grid-cols-2 grid-rows-4">
       {list.map((item) => {
         return (
           <div className="h-52" key={item.ID}>
             <CardImageItem
               url={item.Picture.PictureUrl1}
               title={item.Name}
-              clickEvent={()=>goToDetailPage(item)}
+              clickEvent={() => goToDetailPage(item)}
             />
           </div>
         );

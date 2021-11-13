@@ -1,11 +1,6 @@
 import React from "react";
-import Card from "@mui/material/Card";
 
 const CardImageItem = ({ url, title, subTitle, clickEvent }) => {
-  const bgImgStyle = {
-    backgroundSize: "cover",
-    backgroundImage: `url(${url})`,
-  };
   const ImageBar = () => {
     return (
       <>
@@ -20,12 +15,13 @@ const CardImageItem = ({ url, title, subTitle, clickEvent }) => {
   };
 
   return (
-    <Card className="" onClick={clickEvent}>
-      <div className="relative h-52 rounded overflow-hidden shadow-sm cursor-pointer">
-        <div className="h-full w-auto" style={bgImgStyle}></div>
-        <ImageBar />
-      </div>
-    </Card>
+    <div
+      className="relative rounded shadow-sm cursor-pointer overflow-hidden h-full"
+      onClick={clickEvent}
+    >
+      <img src={url} alt={title} className="h-full w-full" />
+      <ImageBar />
+    </div>
   );
 };
 
