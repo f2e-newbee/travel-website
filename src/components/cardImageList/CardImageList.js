@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { PICTURE_PER_PAGE } from "../../features/attractionlist/AttractionList";
+const PICTURE_PER_PAGE = 12;
 
 export default function CardImageList({ data, page, goToDetailPage }) {
   const [itemData, setItemData] = useState(data.slice(0, PICTURE_PER_PAGE));
@@ -17,10 +17,10 @@ export default function CardImageList({ data, page, goToDetailPage }) {
         <div
           key={item.ID}
           className="relative h-52 rounded overflow-hidden shadow-sm cursor-pointer"
-          onClick={()=>goToDetailPage(item)}
+          onClick={() => goToDetailPage(item)}
         >
           <img
-            src={item.Picture.PictureUrl1}
+            src={item.Picture.PictureUrl2 || item.Picture.PictureUrl1}
             alt={item.Name}
             className="w-full h-full"
           />
@@ -33,7 +33,7 @@ export default function CardImageList({ data, page, goToDetailPage }) {
 
 const ImageBar = ({ title }) => {
   return (
-    <div className="absolute text-white bg-black bottom-0 h-20 w-full p-3 opacity-80 font-semibold">
+    <div className="absolute text-white bg-black bottom-0 h-20 w-full p-3 opacity-70 font-semibold">
       <span>{title}</span>
     </div>
   );
