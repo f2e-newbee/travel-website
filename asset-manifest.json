@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/travel-website/static/css/main.7e35feec.chunk.css",
+    "main.js": "/travel-website/static/js/main.e171bd0a.chunk.js",
+    "main.js.map": "/travel-website/static/js/main.e171bd0a.chunk.js.map",
+    "runtime-main.js": "/travel-website/static/js/runtime-main.11d3a729.js",
+    "runtime-main.js.map": "/travel-website/static/js/runtime-main.11d3a729.js.map",
+    "static/css/2.f9ef3bec.chunk.css": "/travel-website/static/css/2.f9ef3bec.chunk.css",
+    "static/js/2.eb4de6cf.chunk.js": "/travel-website/static/js/2.eb4de6cf.chunk.js",
+    "static/js/2.eb4de6cf.chunk.js.map": "/travel-website/static/js/2.eb4de6cf.chunk.js.map",
+    "index.html": "/travel-website/index.html",
+    "static/css/2.f9ef3bec.chunk.css.map": "/travel-website/static/css/2.f9ef3bec.chunk.css.map",
+    "static/css/main.7e35feec.chunk.css.map": "/travel-website/static/css/main.7e35feec.chunk.css.map",
+    "static/js/2.eb4de6cf.chunk.js.LICENSE.txt": "/travel-website/static/js/2.eb4de6cf.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/travel-website/static/media/food.30a89253.jpg",
+    "static/media/logo.1a09d652.svg": "/travel-website/static/media/logo.1a09d652.svg",
+    "static/media/slick-theme.css": "/travel-website/static/media/slick.c94f7671.ttf",
+    "static/media/subtitle-1.2acc2854.svg": "/travel-website/static/media/subtitle-1.2acc2854.svg",
+    "static/media/subtitle-2.a489261c.svg": "/travel-website/static/media/subtitle-2.a489261c.svg",
+    "static/media/subtitle-3.411169d8.svg": "/travel-website/static/media/subtitle-3.411169d8.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.11d3a729.js",
+    "static/css/2.f9ef3bec.chunk.css",
+    "static/js/2.eb4de6cf.chunk.js",
+    "static/css/main.7e35feec.chunk.css",
+    "static/js/main.e171bd0a.chunk.js"
+  ]
+}
