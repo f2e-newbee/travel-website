@@ -1,33 +1,34 @@
 import React from 'react'
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 
-export const HotelCardItem = () => {
+export const HotelCardItem = (props) => {
+    let bgUrl = props.url
+    const bgImg  = {
+        backgroundSize: "cover",
+        backgroundImage : `url(${bgUrl})`
+    }
+
     return (
         <Card className="mx-4" sx={{ maxWidth: 450 }}>
-            <CardMedia
-                component="img"
-                alt="green iguana"
-                height="140"
-                image="/assets/img/bg.jpg"
-            />
-            <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                Lizard
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over 6,000
-                species, ranging across all continents except Antarctica
-                </Typography>
-            </CardContent>
-            <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
-            </CardActions>
+            <div className="relative h-72 rounded overflow-hidden shadow-sm cursor-pointer">
+                <a href={props.webUrl} alt={props.name}>
+                <div className="h-full w-auto" style={bgImg}></div>
+                <ImageBar title={props.name} city={props.city} />
+                </a>
+            </div>
         </Card>
     )
 }
+
+const ImageBar = ({ title,city }) => {
+    return (
+        <div className="relative">
+            <div className="absolute bg-black bottom-0 h-20 w-full p-3 opacity-40">
+            </div>
+            <div className="absolute text-white left-2/4 bottom-3 transform -translate-x-2/4 font-bold">
+                <h3 className="text-xl whitespace-nowrap">{title}</h3>
+                <h6 className="text-primary-light">{city}</h6>
+            </div>
+        </div>
+    );
+  };
