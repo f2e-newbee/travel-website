@@ -19,7 +19,8 @@ module.exports = {
         'secondary-light':'#F8E3DA',
         'text-dark':'#1D3A3F',
         'text-regular':'#486165',
-        'text-light':'#728096'
+        'text-light':'#728096',
+        'grey':'#C4C4C4'
       },
       backgroundImage: {
         'food-banner': "linear-gradient(to bottom, rgba(10,10,10,0.7) 0%,rgb(57 37 37 / 70%) 100%), url(/src/assets/img/food.jpg)",

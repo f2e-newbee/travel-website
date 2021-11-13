@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { fetchApi } from "../../api";
 import { useNavigate } from "react-router-dom";
 import CardImageList from "../../components/cardImageList/CardImageList";
 import CardListPagination from "../../components/pagination/CardListPagination";
 import Filter from "../../components/filter/Filter";
-import { fetchApi } from "../../api";
+import CustomHeader from "../../components/customHeader/CustomHeader";
+import SearchBar from "../../components/searchBar/SearchBar";
 
 export const PICTURE_PER_PAGE = 12;
 
@@ -30,12 +32,14 @@ export const AttractionList = () => {
   }
 
   function goToDetailPage(item) {
-    // dispatch(setAttractionData(item))
     navigate(`/attractionItem/${item.ID}`);
   }
 
   return (
     <>
+      <CustomHeader title="景點列表">
+        <SearchBar />
+      </CustomHeader>
       <div className="container mx-auto">
         <Filter />
         <div className="my-10">
