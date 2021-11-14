@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { StyledEngineProvider } from "@mui/material/styles";
 import HeaderMobile from "./HeaderMobile";
+<<<<<<< HEAD
 import { ReactComponent as Logo } from '../../assets/img/logo.svg'
 import { Link } from "react-router-dom";
+=======
+import { ReactComponent as Logo } from "../../assets/img/logo.svg";
+>>>>>>> 5b4455ba55818bde11050abf6b3016ce9cac81a5
 
 export const Header = () => {
   /** 設定header背景顏色 */
@@ -13,10 +17,11 @@ export const Header = () => {
     } else {
       setHeader(false);
     }
-  }
-    const headerClass = `top-0 fixed  w-full  z-50	${ header ? 'bg-primary':'bg-transparent'}`
-    window.addEventListener('scroll', changeHeaderBg);    
-
+  };
+  const headerClass = `top-0 fixed  w-full  z-50	${
+    header ? "bg-primary" : "bg-transparent"
+  }`;
+  window.addEventListener("scroll", changeHeaderBg);
 
      return (
          <header className={headerClass}>
@@ -42,7 +47,7 @@ export const Header = () => {
                     {/* <li className="mr-2 px-10 hover:text-white font-bold">
                         <a href="#">主題之旅</a>
                     </li> */}
-                    {/* <li className="mr-2 px-10 hover:text-white font-bold">
+          {/* <li className="mr-2 px-10 hover:text-white font-bold">
                         <Search>
                             <SearchIconWrapper>
                             <SearchIcon />
@@ -53,10 +58,8 @@ export const Header = () => {
                             />
                         </Search>                     
                     </li> */}
-                </ul>
-            </div>
-         </header>
-        
-     )
- }
- 
+        </ul>
+      </div>
+    </header>
+  );
+};
