@@ -86,6 +86,7 @@ const AttractionItem = () => {
           (item) => item.Picture.PictureUrl1
         );
         setRestaurant(filteredData);
+        setSlideCount(filteredData.length >= 4 ? 4 : filteredData.length);
       });
     }
   }, [data]);
