@@ -34,7 +34,6 @@ const sliderSettings = {
   dots: true,
   infinit: true,
   speed: 500,
-  slidesToShow: 4,
   slidesToScroll: 1,
   responsive: [
     {
@@ -60,6 +59,8 @@ const AttractionItem = () => {
   const [data, setData] = useState(null);
   const [restaurant, setRestaurant] = useState(null);
   const [googleMapUrl, setGoogleMapUrl] = useState("");
+  const [slideCount, setSlideCount] = useState(1);
+
   useEffect(() => {
     fetchApi("/v2/Tourism/ScenicSpot", {
       $filter: `ID eq '${params.id}'`,
@@ -85,6 +86,7 @@ const AttractionItem = () => {
           (item) => item.Picture.PictureUrl1
         );
         setRestaurant(filteredData);
+        setSlideCount(filteredData.length >= 4 ? 4 : filteredData.length);
       });
     }
   }, [data]);
@@ -181,9 +183,9 @@ const AttractionItem = () => {
           {/* 周邊美食  */}
           <section className="my-10">
             <Title>周邊美食</Title>
-            <Slider {...sliderSettings}>
-              {restaurant &&
-                restaurant.map((item) => {
+            {restaurant && restaurant.length > 0 ? (
+              <Slider {...sliderSettings} slidesToShow={slideCount}>
+                {restaurant.map((item) => {
                   return (
                     <div key={item.ID} className="h-72 px-5">
                       <a href={"/foodItem/" + item.ID}>
@@ -196,7 +198,10 @@ const AttractionItem = () => {
                     </div>
                   );
                 })}
-            </Slider>
+              </Slider>
+            ) : (
+              <div className="text-primary-dark">暫無資料</div>
+            )}
           </section>
         </div>
       </>
