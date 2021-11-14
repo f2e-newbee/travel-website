@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/travel-website/static/css/main.a13519b1.chunk.css",
-    "main.js": "/travel-website/static/js/main.cdf82f01.chunk.js",
-    "main.js.map": "/travel-website/static/js/main.cdf82f01.chunk.js.map",
+    "main.js": "/travel-website/static/js/main.0eb55730.chunk.js",
+    "main.js.map": "/travel-website/static/js/main.0eb55730.chunk.js.map",
     "runtime-main.js": "/travel-website/static/js/runtime-main.11d3a729.js",
     "runtime-main.js.map": "/travel-website/static/js/runtime-main.11d3a729.js.map",
     "static/css/2.f9ef3bec.chunk.css": "/travel-website/static/css/2.f9ef3bec.chunk.css",
-    "static/js/2.1b34a039.chunk.js": "/travel-website/static/js/2.1b34a039.chunk.js",
-    "static/js/2.1b34a039.chunk.js.map": "/travel-website/static/js/2.1b34a039.chunk.js.map",
+    "static/js/2.c86de917.chunk.js": "/travel-website/static/js/2.c86de917.chunk.js",
+    "static/js/2.c86de917.chunk.js.map": "/travel-website/static/js/2.c86de917.chunk.js.map",
     "index.html": "/travel-website/index.html",
     "static/css/2.f9ef3bec.chunk.css.map": "/travel-website/static/css/2.f9ef3bec.chunk.css.map",
     "static/css/main.a13519b1.chunk.css.map": "/travel-website/static/css/main.a13519b1.chunk.css.map",
-    "static/js/2.1b34a039.chunk.js.LICENSE.txt": "/travel-website/static/js/2.1b34a039.chunk.js.LICENSE.txt",
+    "static/js/2.c86de917.chunk.js.LICENSE.txt": "/travel-website/static/js/2.c86de917.chunk.js.LICENSE.txt",
     "static/media/index.css": "/travel-website/static/media/food.30a89253.jpg",
     "static/media/food-1.2d9a026a.png": "/travel-website/static/media/food-1.2d9a026a.png",
     "static/media/food-2.5e660025.png": "/travel-website/static/media/food-2.5e660025.png",
@@ -36,8 +36,8 @@
   "entrypoints": [
     "static/js/runtime-main.11d3a729.js",
     "static/css/2.f9ef3bec.chunk.css",
-    "static/js/2.1b34a039.chunk.js",
+    "static/js/2.c86de917.chunk.js",
     "static/css/main.a13519b1.chunk.css",
-    "static/js/main.cdf82f01.chunk.js"
+    "static/js/main.0eb55730.chunk.js"
   ]
 }
