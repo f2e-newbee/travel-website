@@ -5,15 +5,10 @@ import { fetchApi } from "../../api";
 import CardImageList from "../../components/cardImageList/CardImageList";
 import CardListPagination from "../../components/pagination/CardListPagination";
 import Filter from "../../components/filter/Filter";
-<<<<<<< HEAD
 import CustomHeader from "../../components/customHeader/CustomHeader";
 import SearchBar from "../../components/searchBar/SearchBar";
-=======
-import { fetchApi } from "../../api";
-import SearchBar from "../../components/searchBar/SearchBar";
-import CustomHeader from "../../components/customHeader/CustomHeader";
+
 export const PICTURE_PER_PAGE = 12;
->>>>>>> feature/homepage
 
 export const AttractionList = () => {
   const [data, setData] = useState([]);
@@ -56,11 +51,7 @@ export const AttractionList = () => {
   return (
     <>
       <CustomHeader title="景點列表">
-<<<<<<< HEAD
-        <SearchBar />
-=======
         <SearchBar type="primary"/>
->>>>>>> feature/homepage
       </CustomHeader>
       <div className="container mx-auto">
         <Filter />

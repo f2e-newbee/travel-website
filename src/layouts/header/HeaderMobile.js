@@ -14,6 +14,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import FoodBankIcon from '@mui/icons-material/FoodBank';
 import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
 import RoomIcon from '@mui/icons-material/Room';
+import { ReactComponent as Logo } from '../../assets/img/logo.svg'
 
  const HeaderMobile = () => {
   /** 設定Navbar List 的展開和收合 */
@@ -103,7 +104,7 @@ import RoomIcon from '@mui/icons-material/Room';
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            Logo Here
+            <Logo/>
           </Typography>
           {/* <Search>
             <SearchIconWrapper>
