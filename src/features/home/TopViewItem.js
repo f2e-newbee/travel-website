@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Link } from "react-router-dom";
 
 export const TopViewItem = (props) => {
     const [style, setStyle] = useState({opacity: '0'});
@@ -6,7 +7,7 @@ export const TopViewItem = (props) => {
 
     return (
     <div className="relative px-2">
-      <a href={url}>
+      <Link to={url}>
         <img className="w-full" src={props.url} id={props.id} alt={props.name}/>
         <div style={style} className="absolute top-0 left-0 w-full h-full px-2"
           onMouseEnter={e => {
@@ -19,7 +20,7 @@ export const TopViewItem = (props) => {
           <p className="text-white text-2xl font-bold absolute top-40 left-2/4 transform -translate-x-2/4">{props.name}</p>
           <p className="w-10/12 absolute top-56 left-2/4 transform -translate-x-2/4 text-white py-2 border-b border-t">{props.desc}</p>
         </div>
-      </a>
+      </Link>
     </div>
     )
 }
