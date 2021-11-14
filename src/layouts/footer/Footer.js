@@ -35,11 +35,8 @@ export const Footer = () => {
                     </li>
                 </ul>
             </div>
-            <div className="flex items-center  text-sm  justify-between px-8 py-4">
+            <div className="flex items-center  text-sm  justify-center px-8 py-4">
                 <p>&copy; 2021 海獅會害怕.Ltd   All rights reserved.</p>
-                <div className="flex items-center">
-                    <p className="mr-2">隱私權保護政策及個資聲明 </p>
-                </div>
             </div>
         </footer>
     )
