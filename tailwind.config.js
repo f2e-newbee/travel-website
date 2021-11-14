@@ -7,8 +7,17 @@ module.exports = {
       ...theme('colors'),
       'primary': '#5CAFBB',
       'primary-dark': '#246069',
-      'secondary': '#FBAE8C'
+      'secondary': '#FBAE8C',
+      'secondary-light': '#FFEDE5'
      }),
+
+     borderColor: theme => ({
+      ...theme('colors'),
+       DEFAULT: theme('colors.gray.300', 'currentColor'),
+      'primary': '#5CAFBB',
+      'secondary': '#FBAE8C',
+     }),
+
     extend: {
       colors:{
         'primary':'#5CAFBB',
@@ -29,7 +38,15 @@ module.exports = {
         'screen-md' : '40vh',
        },
        minHeight: {
-         '150': '150px'
+         '150': '150px',
+         '400': '400px'
+       },
+
+       margin: {
+        $40: '40%',
+        md: '16px',
+        lg: '24px',
+        xl: '48px',
        }
     },
   },

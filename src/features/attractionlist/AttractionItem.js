@@ -43,7 +43,7 @@ const AttractionItem = () => {
   const [restaurant, setRestaurant] = useState(null);
 
   useEffect(() => {
-    fetchApi("/v2/Tourism/ScenicSpot/Taipei", {
+    fetchApi("/v2/Tourism/ScenicSpot", {
       $filter: `ID eq '${params.id}'`,
       $format: "JSON",
     }).then((response) => {

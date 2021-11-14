@@ -53,7 +53,7 @@ export const AttractionList = () => {
       <CustomHeader title="景點列表">
         <SearchBar type="primary"/>
       </CustomHeader>
-      <div className="container mx-auto">
+      <div className="max-w-screen-lg	 container mx-auto">
         <Filter />
         <div className="my-10">
           <CardImageList list={showDataList} goToDetailPage={goToDetailPage} />

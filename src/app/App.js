@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { selectFetch } from "../store/slice";
 import { ErrorModal } from "../components/modal/ErrorModal";
 import AttractionItem from "../features/attractionlist/AttractionItem";
+import { FoodItem } from "../features/foodlist/FoodItem";
 
 export const App = () => {
   const { loading, hasError, errorMsg } = useSelector(selectFetch);
@@ -25,6 +26,9 @@ export const App = () => {
           <Route path="/foodlist" element={<FoodList />} />
           <Route path="/attractionItem" element={<AttractionItem />}>
             <Route path=":id" element={<AttractionItem />} />
+          </Route>
+          <Route path="/foodItem" element={<FoodItem />}>
+            <Route path=":id" element={<FoodItem />} />
           </Route>
         </Routes>
         <Footer />

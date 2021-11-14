@@ -45,3 +45,8 @@ export const errorMapping = {
   404: "Not Found",
   500: "伺服器出錯",
 };
+
+
+export const googleApiConfig  = {
+  key: 'AIzaSyBrFzau71jNs25oH8WGxUt-6CRnBkIJUBU'
+}

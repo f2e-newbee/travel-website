@@ -39,6 +39,7 @@ export const Home = () => {
     fetchData();
   }, []);
 
+  /** 取得住宿資料 */
   function fetchHotelData() {
     fetchApi("/v2/Tourism/Hotel/Taipei?$top=30&$filter=contains(Grade,'五星級')&$format=JSON").then((response) => {
       setData(response.data);
@@ -145,6 +146,7 @@ export const Home = () => {
                           bannerImg.map((img) =>{
                             return(
                              <TopViewItem 
+                                          id={img.id}
                                           key={img.id}
                                           url={img.url}
                                           desc={img.desc}
