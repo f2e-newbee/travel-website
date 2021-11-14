@@ -6,6 +6,10 @@ import MenuItem from "@mui/material/MenuItem";
 
 const cityList = [
   {
+    text: "全選",
+    value: "All",
+  },
+  {
     text: "臺北市",
     value: "Taipei",
   },
@@ -95,14 +99,14 @@ const cityList = [
   },
 ];
 
-const Filter = ({ city, handleCityChange }) => {
+const Filter = ({ city, setCity }) => {
   return (
-    <FormControl className="w-40" variant="standard">
+    <FormControl fullWidth>
       <InputLabel>縣市</InputLabel>
       <Select
-        value={city}
         label="City"
-        onChange={(event) => handleCityChange(event.target.value)}
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
       >
         {cityList.map((city) => {
           return (
