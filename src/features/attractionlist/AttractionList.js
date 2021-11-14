@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useNavigate } from "react-router-dom";
 import { fetchApi } from "../../api";
 import CardImageList from "../../components/cardImageList/CardImageList";
 import CardListPagination from "../../components/pagination/CardListPagination";
-import Filter from "../../components/filter/Filter";
 import CustomHeader from "../../components/customHeader/CustomHeader";
 import SearchBar from "../../components/searchBar/SearchBar";
 
@@ -15,7 +14,6 @@ export const AttractionList = () => {
   const [showDataList, setShowDataList] = useState([]);
   const [city, setCity] = useState("All");
   const [keyWord, setKeyWord] = useState("");
-  // const [city, setCity] = useState("NewTaipei");
 
   const isMobile = useMediaQuery({ query: `(max-width: 768px)` });
   const PICTURE_PER_PAGE = isMobile ? 8 : 12;
@@ -68,6 +66,7 @@ export const AttractionList = () => {
         getCityData();
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [keyWord]);
 
   function goToDetailPage(item) {

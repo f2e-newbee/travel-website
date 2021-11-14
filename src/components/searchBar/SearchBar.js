@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import Filter from "../filter/Filter";
 /**
@@ -38,7 +38,10 @@ const SearchBar = ({
           </button>
         )}
         {type === "secondary" && (
-          <button className="bg-secondary hover:bg-secondary-dark py-2 px-6 rounded-3xl text-white font-bold ml-4">
+          <button
+            className="bg-secondary hover:bg-secondary-dark py-2 px-6 rounded-3xl text-white font-bold ml-4"
+            onClick={() => handleSearch(keyWord)}
+          >
             開始搜尋
           </button>
         )}
