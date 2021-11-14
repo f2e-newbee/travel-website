@@ -5,7 +5,6 @@ import { Home } from "../features/home/Home";
 import { AttractionList } from "../features/attractionlist/AttractionList";
 import { FoodList } from "../features/foodlist/FoodList";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import styled from "@emotion/styled";
 import Loader from "../components/loader/Loader";
 import { useSelector } from "react-redux";
 import { selectFetch } from "../store/slice";

@@ -11,7 +11,7 @@ const NoData = () => {
   return (
     <div className="text-primary-dark text-3xl flex items-center justify-center font-bold">
       <SearchOffIcon fontSize="large" />
-      查無資料
+      暫無資料
     </div>
   );
 };
