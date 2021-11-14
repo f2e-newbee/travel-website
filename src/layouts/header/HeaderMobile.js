@@ -15,6 +15,7 @@ import FoodBankIcon from '@mui/icons-material/FoodBank';
 import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
 import RoomIcon from '@mui/icons-material/Room';
 import { ReactComponent as Logo } from '../../assets/img/logo.svg'
+import { Link } from "react-router-dom";
 
  const HeaderMobile = () => {
   /** 設定Navbar List 的展開和收合 */
@@ -61,7 +62,7 @@ import { ReactComponent as Logo } from '../../assets/img/logo.svg'
             link: '/attractionlist'
           },
           {
-            page:'美食探索',
+            page:'餐廳探索',
             link: '/foodlist'
           },
           {
@@ -69,14 +70,14 @@ import { ReactComponent as Logo } from '../../assets/img/logo.svg'
             link: '/'
           }
         ].map((item, index) => (
-          <a href={item.link} key={item.page}>
+          <Link to={item.link} key={item.page}>
             <ListItem button onClick={toggleDrawer(false)}>
               <ListItemIcon>
                 {switchIcon(item.page)}
               </ListItemIcon>
               <ListItemText primary={item.page} />
             </ListItem>
-          </a>
+          </Link>
         ))}
       </List>
     </Box>

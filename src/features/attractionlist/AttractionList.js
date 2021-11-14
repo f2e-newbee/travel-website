@@ -74,7 +74,7 @@ export const AttractionList = () => {
   }
   return (
     <>
-      <CustomHeader title="景點列表">
+      <CustomHeader title="景點列表" type="attaction">
         <SearchBar
           type="primary"
           handleSearch={handleSearch}

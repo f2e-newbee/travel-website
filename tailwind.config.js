@@ -33,6 +33,7 @@ module.exports = {
       },
       backgroundImage: {
         'food-banner': "linear-gradient(to bottom, rgba(10,10,10,0.7) 0%,rgb(57 37 37 / 70%) 100%), url(/src/assets/img/food.jpg)",
+        'attract-banner': "linear-gradient(to bottom, rgba(10,10,10,0.7) 0%,rgb(57 37 37 / 70%) 100%), url(/src/assets/img/attraction.jpg)",
        },
        height: {
         'screen-md' : '40vh',

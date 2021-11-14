@@ -35,7 +35,6 @@ export const FoodList = () => {
       fetchApi("/v2/Tourism/Restaurant/NewTaipei", params).then((response) => {
         const data = response.data.filter((item) => item.Picture.PictureUrl1);
         setCount(Math.ceil(data.length / PICTURE_PER_PAGE));
-        console.log(data)
         setData(data);
       });
     }

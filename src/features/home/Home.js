@@ -16,6 +16,7 @@ import { ReactComponent as RoomTitle } from '../../assets/title/subtitle-3.svg'
 import { useSpring, animated } from 'react-spring'
 import { fetchApi } from "../../api";
 import { TopViewItem } from './TopViewItem';
+import { Link } from "react-router-dom";
 
 
 const PrevArrow = (props) =>{
@@ -40,22 +41,22 @@ const NextArrow = (props) =>{
 
 export const Home = () => {
   const [data, setData] = useState([]);
+
   useEffect(() => {
     fetchHotelData();
-    fetchData();
   }, []);
 
   /** 取得住宿資料 */
   function fetchHotelData() {
-    fetchApi("/v2/Tourism/Hotel/Taipei?$top=30&$filter=contains(Grade,'五星級')&$format=JSON").then((response) => {
+    fetchApi("/v2/Tourism/Hotel/Taipei",{
+      $filter: "Grade eq '五星級'",
+      $format: "JSON",
+    }).then((response) => {
       setData(response.data);
     });
   }
 
-  function fetchData() {
-    fetchApi("/v2/Tourism/ScenicSpot?$top=30&$filter=contains(name,'中正紀念堂')&$format=JSON").then((response) => {
-    });
-  }
+ 
 
   /** React spring animation */
   const [fadeIn, api] = useSpring(()=>({
@@ -164,10 +165,10 @@ export const Home = () => {
                     </Slider>
                 </div> 
                 <div className="w-full mt-16">
-                  <a className="flex align-center justify-center" href="/attractionlist">
+                  <Link className="flex align-center justify-center" to="/attractionlist">
                     <p className="font-bold text-secondary">看更多景點</p>
                       <ArrowRightIcon  className="text-secondary"/>
-                  </a>
+                  </Link>
                 </div>
             </section>
             <section className="text-center max-w-screen-xl my-0 mx-auto py-36 pb-40 border-b border-gray-200">
@@ -188,12 +189,12 @@ export const Home = () => {
                   <div className="row-span-5 lg:col-span-2 col-span-4">
                     <img className="lg:h-full lg:w-full w-full h-auto" src={Food5}  alt="food-5" />
                   </div>
-                  <a  href="/foodlist" className="lg:row-span-3 row-span-6 lg:col-span-2 col-span-4 bg-secondary flex  justify-center items-center">
+                  <Link to="/foodlist" className="lg:row-span-3 row-span-6 lg:col-span-2 col-span-4 bg-secondary flex  justify-center items-center">
                     <div className="flex">
                       <p className="font-bold text-gray-50">查詢餐廳</p>
                         <ArrowRightIcon  className="text-gray-50"/>
                     </div>
-                  </a>
+                  </Link>
                 </div>
             </section>
             <section className="text-center max-w-screen-xl my-0 mx-auto py-36 pb-40">                
@@ -201,19 +202,17 @@ export const Home = () => {
                 <div className="sm:px-20 px-6">
                     <Slider className="flex items-center" {...liveSettings}>
                     {
-                      data.map((item) =>{
-                          if(item.Picture.PictureUrl1){
-                              return(
-                                  <HotelCardItem 
-                                      key={item.ID}
-                                      webUrl={item.WebsiteUrl}
-                                      city={item.City}
-                                      url={item.Picture.PictureUrl1}
-                                      name={item.Name}
-                                  />
-                              )
-                          }   
-                          return null
+                      data && data.map((item) =>{
+                        return(
+                            <HotelCardItem 
+                                key={item.ID}
+                                webUrl={item.WebsiteUrl}
+                                city={item.City}
+                                url={item.Picture.PictureUrl1}
+                                name={item.Name}
+                            />
+                        )
+                           
                     })}
                     </Slider>
                 </div>

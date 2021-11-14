@@ -8,8 +8,6 @@ import RoomIcon from "@mui/icons-material/Room";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import WatchLaterIcon from "@mui/icons-material/WatchLater";
 import WidgetsIcon from "@mui/icons-material/Widgets";
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CardImageItem from "../../components/cardImageItem/CardImageItem";
 import { googleApiConfig } from "../../api/apiHandler";
 import Slider from "react-slick";
