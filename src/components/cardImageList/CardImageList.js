@@ -7,10 +7,9 @@ import CardImageItem from "../cardImageItem/CardImageItem";
  * @param {Function} goToDetailPage: 點擊image後要做的事
  */
 
-
 export default function CardImageList({ list, goToDetailPage }) {
   return (
-    <div className="grid md:grid-cols-4 md:grid-rows-3 gap-6 grid-cols-2 grid-rows-4">
+    <div className="grid md:grid-cols-4 md:grid-rows-3 gap-6 sm:grid-cols-2 sm:grid-rows-4 grid-cols-1">
       {list.map((item) => {
         return (
           <div className="h-52 shadow-xl" key={item.ID}>
