@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import { useNavigate } from "react-router-dom";
+import { fetchApi } from "../../api";
 import CardImageList from "../../components/cardImageList/CardImageList";
 import CardListPagination from "../../components/pagination/CardListPagination";
 import Filter from "../../components/filter/Filter";
-import { fetchApi } from "../../api";
 import SearchBar from "../../components/searchBar/SearchBar";
 import CustomHeader from "../../components/customHeader/CustomHeader";
 export const PICTURE_PER_PAGE = 12;
@@ -12,15 +13,23 @@ export const AttractionList = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
-  const navigate = useNavigate();
+  const [showDataList, setShowDataList] = useState([]);
 
-  const handlePageChange = (event, value) => {
-    setPage(value);
-  };
+  const isMobile = useMediaQuery({ query: `(max-width: 768px)` });
+
+  const PICTURE_PER_PAGE = isMobile ? 8 : 12;
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    let start = PICTURE_PER_PAGE * (page - 1);
+    let end = start + PICTURE_PER_PAGE;
+    setShowDataList(data.slice(start, end));
+    setCount(Math.ceil(data.length / PICTURE_PER_PAGE));
+  }, [data, page, PICTURE_PER_PAGE]);
 
   function fetchData(params = {}) {
     fetchApi("/v2/Tourism/ScenicSpot/Taipei", params).then((response) => {
@@ -31,8 +40,11 @@ export const AttractionList = () => {
   }
 
   function goToDetailPage(item) {
-    // dispatch(setAttractionData(item))
     navigate(`/attractionItem/${item.ID}`);
+  }
+
+  function handlePageChange(event, value) {
+    setPage(value);
   }
 
   return (
@@ -43,11 +55,7 @@ export const AttractionList = () => {
       <div className="container mx-auto">
         <Filter />
         <div className="my-10">
-          <CardImageList
-            data={data}
-            page={page}
-            goToDetailPage={goToDetailPage}
-          />
+          <CardImageList list={showDataList} goToDetailPage={goToDetailPage} />
         </div>
         <div className="flex justify-center mb-20">
           <CardListPagination
